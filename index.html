@@ -14,7 +14,64 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <h1>Hello Weather</h1>
+    <div class="container">
+      <h1>Hello Weather</h1>
+      <form action="">
+        <input type="text" placeholder="Enter city here..." />
+        <input type="submit" value="Search" id="search-city" />
+        <input type="submit" value="Current" id="current-location" />
+      </form>
+      <div class="wrapperInfo">
+        <h2 class="wrapperOne" id="city">Stockholm</h2>
+        <div class="wrapperTwo" id="date">Tuesday, January 24 2023</div>
+        <div class="wrapperThree" id="time">15:20</div>
+        <div class="wrapperFour" id="degree">
+          0 °
+          <span class="converters">
+            <a href="a" class="celsius" id="convert-celcius">C</a>
+            <a href="a" class="fahrenheit" id="convert-fahrenheit">F</a>
+          </span>
+        </div>
+      </div>
+      <div class="wrapperIcons">
+        <span class="wrapperIconsOne" id="precipitation">Precipitation</span>
+        <span class="wrapperIconsTwo" id="humidity">Humidity %</span>
+        <span class="wrapperIconsThree" id="wind">Wind Speed km/h</span>
+      </div>
+      <div id="sun-rise-set">
+        <span id="rise">Sunrise AM</span>
+        <span id="set">Sunset PM</span>
+      </div>
+      <ul class="wrapperDays">
+        <li id="sunday">
+          Sunday <span class="icon">/</span> <span class="temperature">°</span>
+        </li>
+        <li id="monday">
+          Monday <span class="icon">/</span> <span class="temperature">°</span>
+        </li>
+        <li id="tuesday">
+          Tuesday <span class="icon">/</span> <span class="temperature">°</span>
+        </li>
+        <li id="wednesday">
+          Wednesday <span class="icon">/</span>
+          <span class="temperature">°</span>
+        </li>
+        <li id="thursday">
+          Thursday <span class="icon">/</span>
+          <span class="temperature">°</span>
+        </li>
+        <li id="friday">
+          Friday <span class="icon">/</span> <span class="temperature">°</span>
+        </li>
+        <li id="saturday">
+          Saturday <span class="icon">/</span>
+          <span class="temperature">°</span>
+        </li>
+      </ul>
+      <a href="a" class="codedBy"
+        >Open-source <span>coded By Farah Alhaddad</span></a
+      >
+    </div>
   </body>
   <script src="src/app.js"></script>
 </html>

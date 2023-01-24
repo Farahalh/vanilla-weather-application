@@ -1,3 +1,19 @@
-h1 {
-  color: red;
+.container {
+  font-style: 1.5;
+}
+
+.wrapperDays {
+  list-style: none;
+}
+
+.celsius {
+  text-decoration: none;
+}
+
+.fahrenheit {
+  text-decoration: none;
+}
+
+.codedBy {
+  text-decoration: none;
 }
