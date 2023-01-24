@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla Weather App</title>
+    <script
+      src="https://kit.fontawesome.com/1125479301.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,26 +21,29 @@
     <div class="container">
       <h1>Hello Weather</h1>
       <form action="">
-        <input type="text" placeholder="Enter city here..." />
+        <input type="text" placeholder="Enter city here..." autocomplete="on" />
         <input type="submit" value="Search" id="search-city" />
         <input type="submit" value="Current" id="current-location" />
       </form>
-      <div class="wrapperInfo">
-        <h2 class="wrapperOne" id="city">Stockholm</h2>
-        <div class="wrapperTwo" id="date">Tuesday, January 24 2023</div>
-        <div class="wrapperThree" id="time">15:20</div>
-        <div class="wrapperFour" id="degree">
+      <div class="mainWrapper">
+        <div class="wrapperInfo">
+          <h2 class="wrapperInfoOne" id="city">Stockholm</h2>
+          <div class="wrapperInfoTwo" id="date">Tuesday, January 24 2023</div>
+          <div class="wrapperInfoThree" id="time">15:20</div>
+        </div>
+        <div class="degree" id="degree">
+          <i class="fa-solid fa-cloud main-temp-icon" id="mainTempIcon"></i>
           0 °
           <span class="converters">
             <a href="a" class="celsius" id="convert-celcius">C</a>
             <a href="a" class="fahrenheit" id="convert-fahrenheit">F</a>
           </span>
         </div>
-      </div>
-      <div class="wrapperIcons">
-        <span class="wrapperIconsOne" id="precipitation">Precipitation</span>
-        <span class="wrapperIconsTwo" id="humidity">Humidity %</span>
-        <span class="wrapperIconsThree" id="wind">Wind Speed km/h</span>
+        <div class="wrapperIcons">
+          <span class="wrapperIconsOne" id="precipitation">Precipitation</span>
+          <span class="wrapperIconsTwo" id="humidity">Humidity %</span>
+          <span class="wrapperIconsThree" id="wind">Wind Speed km/h</span>
+        </div>
       </div>
       <div id="sun-rise-set">
         <span id="rise">Sunrise AM</span>
@@ -44,27 +51,31 @@
       </div>
       <ul class="wrapperDays">
         <li id="sunday">
-          Sunday <span class="icon">/</span> <span class="temperature">°</span>
+          Sunday <i class="fa-solid fa-cloud"></i>
+          <span class="temperature">°</span>
         </li>
         <li id="monday">
-          Monday <span class="icon">/</span> <span class="temperature">°</span>
+          Monday <i class="fa-solid fa-cloud"></i>
+          <span class="temperature">°</span>
         </li>
         <li id="tuesday">
-          Tuesday <span class="icon">/</span> <span class="temperature">°</span>
+          Tuesday <i class="fa-solid fa-snowflake"></i>
+          <span class="temperature">°</span>
         </li>
         <li id="wednesday">
-          Wednesday <span class="icon">/</span>
+          Wednesday <i class="fa-solid fa-sun"></i>
           <span class="temperature">°</span>
         </li>
         <li id="thursday">
-          Thursday <span class="icon">/</span>
+          Thursday <i class="fa-solid fa-sun"></i>
           <span class="temperature">°</span>
         </li>
         <li id="friday">
-          Friday <span class="icon">/</span> <span class="temperature">°</span>
+          Friday <i class="fa-solid fa-sun"></i>
+          <span class="temperature">°</span>
         </li>
         <li id="saturday">
-          Saturday <span class="icon">/</span>
+          Saturday <i class="fa-solid fa-snowflake"></i>
           <span class="temperature">°</span>
         </li>
       </ul>
