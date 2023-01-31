@@ -35,10 +35,17 @@
   text-decoration: none;
 }
 
+.mainWrapper {
+  display: flex;
+}
+
 .wrapperIcons {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: flex-end;
+  margin: 0 auto;
+  padding: 50px;
 }
 
 .description {
