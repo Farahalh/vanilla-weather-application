@@ -76,9 +76,13 @@ function displayWeatherCondition(response) {
     response.data.condition.description;
 
   let mainTempIcon = document.querySelector("#main-temp-icon");
-  mainTempIcon.setAttribute =
+  /* mainTempIcon.setAttribute =
     ("src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+  console.log(mainTempIcon);
+  console.log(response.data.condition.icon);*/
+  mainTempIcon.src = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`;
+
   console.log(mainTempIcon);
 }
 
