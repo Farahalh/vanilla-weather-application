@@ -78,16 +78,9 @@ function displayWeatherCondition(response) {
   let mainTempIcon = document.querySelector("#main-temp-icon");
   mainTempIcon.setAttribute =
     ("src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon_url}.png`);
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
   console.log(mainTempIcon);
 }
-
-/*function setAttribute() {
-  let icon = "response.data.condition.icon";
-  icon = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${icon}.png`;
-  mainTempIcon.addEventListener("submit", displayWeatherCondition);
-  console.log(setAttribute);
-}*/
 
 function searchCity(city) {
   let apiKey = "980ta46f70b3b386c063344ca8aof7b9";
