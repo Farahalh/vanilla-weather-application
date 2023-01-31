@@ -22,6 +22,19 @@
   font-size: 15px;
 }
 
+.converters .celsius {
+  color: black;
+  cursor: default;
+}
+
+.celsius {
+  text-decoration: none;
+}
+
+.fahrenheit {
+  text-decoration: none;
+}
+
 .wrapperIcons {
   display: flex;
   flex-direction: column;
@@ -35,6 +48,6 @@
 .codedBy {
   font-size: smaller;
   margin: 0 auto;
-  padding: 25px;
+
   text-decoration: none;
 }

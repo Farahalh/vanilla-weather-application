@@ -84,6 +84,8 @@ function displayWeatherCondition(response) {
   mainTempIcon.src = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`;
 
   console.log(mainTempIcon);
+
+  celsiusTemperature = response.data.temperature.current;
 }
 
 function searchCity(city) {
@@ -100,13 +102,33 @@ function handleSubmit(event) {
 
 function searchLocation(position) {
   let apiKey = "5980ta46f70b3b386c063344ca8aof7b9";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coordinates.latitude}&lat=${position.coordinates.longitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.data.coordinates.longitude}&lat=${position.data.coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  // remove the active class to the celsius link when F is clicked and add it to C.
+  convertCelsius.classList.remove("celsius");
+  convertFahrenheit.classList.add("celsius");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemperature);
+  console.log(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  // remove the active class to the fahrenheit link when C is clicked and add it to F.
+  convertCelsius.classList.add("celsius");
+  convertFahrenheit.classList.remove("celsius");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+  console.log(celsiusTemperature);
 }
 
 let cityForm = document.querySelector("#search-input");
@@ -117,5 +139,13 @@ searchForm.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let celsiusTemperature = null;
+
+let convertFahrenheit = document.querySelector("#convert-fahrenheit");
+convertFahrenheit.addEventListener("click", displayFahrenheitTemperature);
+
+let convertCelsius = document.querySelector("#convert-celcius");
+convertCelsius.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Stockholm");
