@@ -20,43 +20,49 @@
   <body>
     <div class="container">
       <div class="border">
-        <h1>Hello Weather</h1>
-        <form action="">
+        <form class="form" id="cityForm">
           <input
             type="search"
             placeholder="Enter city here..."
             autocomplete="off"
+            class="searchInput"
+            id="search-input"
           />
           <input type="submit" value="Search" id="search-city" />
           <input type="submit" value="Current" id="current-location" />
         </form>
+
         <div class="mainWrapper">
           <div class="wrapperInfo">
             <h2 class="wrapperInfoOne" id="city">Stockholm</h2>
-            <div class="wrapperInfoTwo" id="date">Tuesday, January 24 2023</div>
-            <div class="wrapperInfoThree" id="time">15:20</div>
+            <div class="wrapperInfoTwo" id="date"></div>
           </div>
+
           <div class="degree" id="degree">
-            <i class="fa-solid fa-cloud main-temp-icon" id="mainTempIcon"></i>
-            0 °
+            <i class="fa-solid fa-cloud mainTempIcon" id="main-temp-icon"></i>
+            <span class="temperature" id="temperature">0°</span>
             <span class="converters">
               <a href="a" class="celsius" id="convert-celcius">C</a>
+              <span>|</span>
               <a href="a" class="fahrenheit" id="convert-fahrenheit">F</a>
             </span>
           </div>
+
           <div class="wrapperIcons">
-            <span class="wrapperIconsOne" id="precipitation"
-              >Precipitation</span
+            <span class="wrapperIconsOne"
+              >Humidity: <span id="humidity"></span>%</span
             >
-            <span class="wrapperIconsTwo" id="humidity">Humidity %</span>
-            <span class="wrapperIconsThree" id="wind">Wind Speed km/h</span>
+            <span class="wrapperIconsTwo"
+              >Wind: <span id="wind"></span> km/h</span
+            >
           </div>
         </div>
-        <div id="sun-rise-set">
+
+        <!-- <div class="sunRiseSet" id="sun-rise-set">
           <span id="rise">Sunrise AM</span>
           <span id="set">Sunset PM</span>
         </div>
-        <!-- <ul class="wrapperDays">
+        <ul class="wrapperDays">
             <li id="sunday">
               Sunday <i class="fa-solid fa-cloud"></i>
               <span class="temperature">°</span>

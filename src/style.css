@@ -4,23 +4,29 @@
 }
 
 .border {
-  padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
-}
-
-.wrapperDays {
-  list-style: none;
-}
-
-.celsius {
   text-decoration: none;
+  padding: 20px;
 }
 
-.fahrenheit {
-  text-decoration: none;
+.mainTempIcon {
+  font-size: 55px;
+}
+
+.temperature {
+  font-size: 50px;
+}
+
+.wrapperIcons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .codedBy {
+  font-size: smaller;
+  margin: 0 auto;
+  padding: 25px;
   text-decoration: none;
 }
