@@ -82,8 +82,7 @@ function displayWeatherCondition(response) {
   console.log(mainTempIcon);
   console.log(response.data.condition.icon);*/
   mainTempIcon.src = `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`;
-
-  console.log(mainTempIcon);
+  //console.log(mainTempIcon);
 
   celsiusTemperature = response.data.temperature.current;
 }
