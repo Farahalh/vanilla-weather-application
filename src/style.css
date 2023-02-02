@@ -52,6 +52,25 @@
   text-transform: capitalize;
 }
 
+.weather-forecast {
+  display: flex;
+  margin-top: 20px;
+  text-align: center;
+  color: #000;
+}
+
+.date-forecast {
+  opacity: 0.6;
+}
+
+.temp-forecasts {
+  font-size: 13px;
+}
+
+.temp-min-forecast {
+  opacity: 0.6;
+}
+
 .codedBy {
   font-size: smaller;
   margin: 0 auto;
