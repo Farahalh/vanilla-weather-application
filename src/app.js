@@ -89,6 +89,8 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
+  document.querySelector("#feels-like").innerHTML =
+    Math.round(response.data.temperature.feels_like);
 
   let mainTempIcon = document.querySelector("#main-temp-icon");
   /* mainTempIcon.setAttribute =
