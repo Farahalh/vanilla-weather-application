@@ -28,7 +28,7 @@ function displayDate() {
   ];
   let month = months[now.getMonth()];
 
-  let year = now.getFullYear();
+  //let year = now.getFullYear();
 
   //let seconds = now.getSeconds();
   let hours = now.getHours();
@@ -110,7 +110,7 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function displayFahrenheitTemperature(event) {
+/*function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
   // remove the active class to the celsius link when F is clicked and add it to C.
@@ -128,7 +128,7 @@ function displayCelsiusTemperature(event) {
   convertFahrenheit.classList.remove("celsius");
   temperature.innerHTML = Math.round(celsiusTemperature);
   console.log(celsiusTemperature);
-}
+}*/
 
 let cityForm = document.querySelector("#search-input");
 cityForm.addEventListener("submit", form);
@@ -139,12 +139,12 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-let celsiusTemperature = null;
+/*let celsiusTemperature = null;
 
 let convertFahrenheit = document.querySelector("#convert-fahrenheit");
 convertFahrenheit.addEventListener("click", displayFahrenheitTemperature);
 
 let convertCelsius = document.querySelector("#convert-celcius");
-convertCelsius.addEventListener("click", displayCelsiusTemperature);
+convertCelsius.addEventListener("click", displayCelsiusTemperature);*/
 
 searchCity("Stockholm");
