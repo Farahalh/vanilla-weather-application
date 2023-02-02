@@ -125,6 +125,33 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let weekDay = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+  weekDay.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">     
+            <div class="date-forecast">${day}</div>
+            <img
+              src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/snow-day.png"
+              alt=""
+              width="40"
+            />
+            <div class="temp-forecasts">
+              <span class="temp-max-forecast">5°</span>
+              <span class="temp-min-forecast">-1°</span>
+            </div>
+          </div> 
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 let currentDate = document.querySelector("#date");
 console.log(document.querySelector("#date"));
 let now = new Date();
@@ -148,3 +175,5 @@ let convertCelsius = document.querySelector("#convert-celcius");
 convertCelsius.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Stockholm");
+
+displayForecast();
