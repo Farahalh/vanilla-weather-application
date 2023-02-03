@@ -76,6 +76,14 @@ function form(event) {
   city.innerHTML = test.value;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "980ta46f70b3b386c063344ca8aof7b9";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeatherCondition(response) {
   console.log(response);
   document.querySelector("#city").innerHTML = response.data.city;
@@ -89,8 +97,9 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
-  document.querySelector("#feels-like").innerHTML =
-    Math.round(response.data.temperature.feels_like);
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.temperature.feels_like
+  );
 
   let mainTempIcon = document.querySelector("#main-temp-icon");
   /* mainTempIcon.setAttribute =
@@ -102,6 +111,10 @@ function displayWeatherCondition(response) {
   //console.log(mainTempIcon);
 
   celsiusTemperature = response.data.temperature.current;
+
+  //console.log(response.data);
+  //console.log(response.data.coordinates);
+  getForecast(response.data.coordinates);
 }
 
 function searchCity(city) {
@@ -127,7 +140,8 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
   let weekDay = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
@@ -151,7 +165,7 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+  //console.log(forecastHTML);
 }
 
 let currentDate = document.querySelector("#date");
@@ -177,5 +191,3 @@ let convertCelsius = document.querySelector("#convert-celcius");
 convertCelsius.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Stockholm");
-
-displayForecast();
