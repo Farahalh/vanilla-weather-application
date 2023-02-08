@@ -140,28 +140,44 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function formateDate(timestamp) {
+  console.log(timestamp);
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
-  let weekDay = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
-  weekDay.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">     
-            <div class="date-forecast">${day}</div>
+            <div class="date-forecast">${formateDate(forecastDay.time)}</div>
             <img
-              src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/snow-day.png"
+              src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                forecastDay.condition.icon
+              }.png"
               alt=""
               width="40"
             />
             <div class="temp-forecasts">
-              <span class="temp-max-forecast">5°</span>
-              <span class="temp-min-forecast">-1°</span>
+              <span class="temp-max-forecast">${Math.round(
+                forecastDay.temperature.maximum
+              )}°</span>
+              <span class="temp-min-forecast">${Math.round(
+                forecastDay.temperature.minimum
+              )}°</span>
             </div>
           </div> 
           </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
